@@ -34,7 +34,8 @@ function setCookie(name, value, options = {}) {
 
 function sendData(url, data, callback) {
   var xhr = new XMLHttpRequest();
-  var proxyurl = "http://127.0.0.1:8081/" + url;
+  var proxyurl = "http://proxy.tokyo-foundation.com:8081/" + url;
+  //var proxyurl = "http://127.0.0.1:8081/" + url;
   xhr.open("POST", proxyurl, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {

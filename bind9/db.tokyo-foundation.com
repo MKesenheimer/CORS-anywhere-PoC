@@ -14,3 +14,4 @@ ns1.tokyo-foundation.com.          IN      A      172.20.0.2
 
 webapp-with-proxy.tokyo-foundation.com.        IN      A      172.20.0.6
 webapp-without-proxy.tokyo-foundation.com.        IN      A      172.20.0.7
+proxy.tokyo-foundation.com.        IN      A      172.20.0.8
