@@ -52,7 +52,6 @@ add the following entries to your computers hosts file under `/etc/hosts`:
 127.0.0.1  proxy.tokyo-foundation.com
 127.0.0.1  webapp-with-proxy.tokyo-foundation.com
 127.0.0.1  webapp-without-proxy.tokyo-foundation.com
-127.0.0.1  json-server.nagoya-foundation.com
 ```
 
 ## now the webapps are accessible under:
