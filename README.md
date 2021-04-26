@@ -24,25 +24,37 @@ start the bind9 daemon
 docker exec -d dns-server /etc/init.d/bind9 start
 ```
 
-# start json-webserver
+## start json-webserver
+```
 cd json-webserver
 docker run --rm -p 3000:3000 --name json-server --net=japan-net --ip=172.20.0.5 --dns=172.20.0.2 -v `pwd`:/data williamyeh/json-server --watch db.json
+```
 
-# start the webapps
+## start the webapps
+```
 docker run -d --rm -p 80:80 --name webapp-with-proxy --net=japan-net --ip=172.20.0.6 --dns=172.20.0.2 webapp-with-proxy
 docker run -d --rm -p 81:80 --name webapp-without-proxy --net=japan-net --ip=172.20.0.7 --dns=172.20.0.2 webapp-without-proxy
+```
 
-# start cors-anywhere from repository redocly
+## start cors-anywhere from repository redocly
+```
 docker run -d --rm -p 8081:8080 --name cors-anywhere --net=japan-net --ip=172.20.0.8 --dns=172.20.0.2 redocly/cors-anywhere
+```
 
-# connect to the network via socks
+## TODO: connect to the network via socks
+```
 docker run -d --rm -p 1337:1080 --name socks5 --net=japan-net --ip=172.20.0.9 --dns=172.20.0.2 serjs/go-socks5-proxy
+```
 
 ## For testing purposes
-# start ubuntu with ping
+start ubuntu with ping
+```
 docker run -d --rm --name=host1 --net=japan-net --ip=172.20.0.3 --dns=172.20.0.2 ubuntu-with-ping /bin/bash -c "while :; do sleep 10; done"
 docker run -d --rm --name=host2 --net=japan-net --ip=172.20.0.4 --dns=172.20.0.2 ubuntu-with-ping /bin/bash -c "while :; do sleep 10; done"
-# accessing host1
+```
+accessing host1
+```
 docker exec -it host1 bash
 > ping host1.nagoya-foundation.com
 > ping json-server.nagoya-foundation.com
+```
