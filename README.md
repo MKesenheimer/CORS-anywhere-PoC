@@ -1,10 +1,12 @@
 # Setup Howto
 
 ## building all containers
+```
 docker build -t bind9 bind9
 docker build -t webapp-with-proxy webapp-with-proxy
 docker build -t webapp-without-proxy webapp-without-proxy
 (docker build -t ubuntu-with-ping ubuntu-with-ping)
+```
 
 # DNS server
 [DNS Server](https://medium.com/nagoya-foundation/running-a-dns-server-in-docker-61cc2003e899)
