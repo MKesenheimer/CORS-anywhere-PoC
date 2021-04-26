@@ -8,11 +8,11 @@ docker build -t webapp-without-proxy webapp-without-proxy
 (docker build -t ubuntu-with-ping ubuntu-with-ping)
 ```
 
-# DNS server
+## DNS server
 [DNS Server](https://medium.com/nagoya-foundation/running-a-dns-server-in-docker-61cc2003e899)
-# <see files in networking>
-# create a new bridged network
-docker network create --driver=bridge --subnet=172.20.0.0/16 japan-net
+<see files in networking>
+create a new bridged network
+`docker network create --driver=bridge --subnet=172.20.0.0/16 japan-net
 # run the networking bind9 container
 docker run -d --rm --name=dns-server --net=japan-net --ip=172.20.0.2 bind9
 # start the bind9 daemon
