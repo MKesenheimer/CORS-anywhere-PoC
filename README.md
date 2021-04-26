@@ -38,13 +38,28 @@ docker run -d --rm -p 81:80 --name webapp-without-proxy --net=japan-net --ip=172
 
 ## start cors-anywhere from repository redocly
 ```
-docker run -d --rm -p 8081:8080 --name cors-anywhere --net=japan-net --ip=172.20.0.8 --dns=172.20.0.2 redocly/cors-anywhere
+docker run -d --rm -p 8080:8080 --name cors-anywhere --net=japan-net --ip=172.20.0.8 --dns=172.20.0.2 redocly/cors-anywhere
 ```
 
 ## TODO: connect to the network via socks
 ```
 docker run -d --rm -p 1337:1080 --name socks5 --net=japan-net --ip=172.20.0.9 --dns=172.20.0.2 serjs/go-socks5-proxy
 ```
+
+## name resolution for host
+add the following entries to your computers hosts file under `/etc/hosts`:
+```
+127.0.0.1  proxy.tokyo-foundation.com
+127.0.0.1  webapp-with-proxy.tokyo-foundation.com
+127.0.0.1  webapp-without-proxy.tokyo-foundation.com
+127.0.0.1  json-server.nagoya-foundation.com
+```
+
+## now the webapps are accessible under:
+http://webapp-without-proxy.tokyo-foundation.com:81/
+http://webapp-with-proxy.tokyo-foundation.com/
+http://json-server.nagoya-foundation.com:3000/posts
+
 
 ## For testing purposes
 start ubuntu with ping
